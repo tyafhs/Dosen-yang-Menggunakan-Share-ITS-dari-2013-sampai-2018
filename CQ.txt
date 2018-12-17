@@ -1,0 +1,52 @@
+import pyodbc
+import pandas as pd
+import matplotlib.pyplot as plt
+
+conn = pyodbc.connect("Driver={SQL Server};"
+                      "Server=FATHIYA;"
+                      "Database=db_final;"
+                      "Trusted_Connection=yes;")
+cursor = conn.cursor()
+def Delapan (conn):
+    sql = cursor.execute("select count(Dosen) as jumlah from dbo.Dosen where year(tanggal) = 2018")
+    result = sql.fetchall() 
+    for row in result:
+         return(row[0])
+def Tujuh (conn):
+    sql = cursor.execute("select count(Dosen) as jumlah from dbo.Dosen where year(tanggal) = 2017")
+    result = sql.fetchall() 
+    for row in result:
+         return(row[0])
+def Enam (conn):
+    sql = cursor.execute("select count(Dosen) as jumlah from dbo.Dosen where year(tanggal) = 2016")
+    result = sql.fetchall() 
+    for row in result:
+         return(row[0])
+def Lima (conn):
+    sql = cursor.execute("select count(Dosen) as jumlah from dbo.Dosen where year(tanggal) = 2015")
+    result = sql.fetchall() 
+    for row in result:
+         return(row[0])
+def Empat (conn):
+    sql = cursor.execute(" ")
+    result = sql.fetchall() 
+    for row in result:
+         return(row[0])
+def Tiga (conn):
+    sql = cursor.execute("select count(Dosen) as jumlah from dbo.Dosen where year(tanggal) = 2013")
+    result = sql.fetchall() 
+    for row in result:
+         return(row[0])
+
+
+Delapan(conn)
+Tujuh(conn)
+Enam(conn)
+Lima(conn)
+Empat(conn)
+Tiga(conn)
+
+x = ['2018', '2017', '2016', '2015', '2014', '2013']
+y = [Delapan(conn), Tujuh(conn), Enam(conn), Lima(conn), Empat(conn), Tiga(conn)]
+plt.bar(x, y)
+plt.show()
